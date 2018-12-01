@@ -1,9 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    android:orientation="vertical"
+    tools:context=".LoginActivity"
+    android:background="@color/colorBase">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:id="@+id/rlyHeadDA"
+        android:background="@drawable/header_login">
+        <ImageView
+            android:layout_width="20sp"
+            android:layout_height="20sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10sp"
+           />
+        <ImageView
+            android:layout_width="120sp"
+            android:layout_height="60sp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/salle_logo"/>
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16sp"
+            android:visibility="invisible"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Trivia La Sallista"
+        android:textColor="@color/colorRedSalle"
+        android:layout_marginTop="15dp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textSize="30sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Bienvenido a la trivia laSallista, selecciona un jugador para continuar:"
+        android:textColor="@color/colorDGray"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+        <Button
+            android:id="@+id/btnPlayerOne"
+            android:layout_width="wrap_content"
+            android:layout_height="40sp"
+            android:layout_weight="1"
+            android:layout_marginLeft="30sp"
+            android:layout_marginRight="5sp"
+            android:layout_marginTop="8sp"
+            android:background="@drawable/button_player_one"
+            android:text="Jugador 1"
+            android:textAlignment="center"
+            android:textColor="@color/colorBase" />
+        <Button
+            android:id="@+id/btnPlayerTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="40sp"
+            android:layout_marginLeft="5sp"
+            android:layout_marginRight="30sp"
+            android:layout_marginTop="8sp"
+            android:layout_weight="1"
+            android:background="@drawable/button_player_two"
+            android:text="Jugador 2"
+            android:textAlignment="center"
+            android:textColor="@color/colorBase" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+        <Button
+            android:id="@+id/btnPlayerThree"
+            android:layout_width="wrap_content"
+            android:layout_height="40sp"
+            android:layout_weight="1"
+            android:layout_marginLeft="30sp"
+            android:layout_marginRight="5sp"
+            android:layout_marginTop="8sp"
+            android:background="@drawable/button_player_three"
+            android:text="Jugador 3"
+            android:textAlignment="center"
+            android:textColor="@color/colorBase" />
+        <Button
+            android:id="@+id/btnPlayerFour"
+            android:layout_width="wrap_content"
+            android:layout_height="40sp"
+            android:layout_marginLeft="5sp"
+            android:layout_marginRight="30sp"
+            android:layout_marginTop="8sp"
+            android:layout_weight="1"
+            android:background="@drawable/button_player_four"
+            android:text="Jugador 4"
+            android:textAlignment="center"
+            android:textColor="@color/colorBase" />
+
+    </LinearLayout>
+
+</LinearLayout>
