@@ -10,7 +10,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60sp"
-        android:id="@+id/rlyHeadDA"
         android:background="@drawable/header_login">
         <ImageView
             android:layout_width="20sp"
