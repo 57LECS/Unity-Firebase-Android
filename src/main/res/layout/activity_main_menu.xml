@@ -69,5 +69,17 @@
         android:textAlignment="center"
         android:textColor="@color/colorBase" />
 
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:layout_marginTop="100sp"
+        android:background="@drawable/button_player_two"
+        android:text="Salir"
+        android:textAlignment="center"
+        android:textColor="@color/colorBase" />
+
 
 </LinearLayout>

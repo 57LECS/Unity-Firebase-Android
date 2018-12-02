@@ -1,9 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBase"
     tools:context=".HighScoresActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:background="@drawable/header_login">
+        <ImageView
+            android:layout_width="20sp"
+            android:layout_height="20sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10sp"
+            />
+        <ImageView
+            android:layout_width="120sp"
+            android:layout_height="60sp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/salle_logo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16sp"
+            android:visibility="invisible"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Puntuaciones"
+        android:textColor="@color/colorRedSalle"
+        android:layout_marginTop="15dp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textSize="30sp"/>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/rcvScores"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
+</LinearLayout>

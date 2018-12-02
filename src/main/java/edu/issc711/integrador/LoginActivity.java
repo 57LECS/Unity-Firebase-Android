@@ -29,8 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     List<Button> lstButtons;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference notebookRef = db.collection("jugadores");
-    private DocumentReference noteRef = db.document("Notebook/My First Note");
+    private CollectionReference jugadoresRef = db.collection("jugadores");
 
     List<Jugador> jugadores;
     @Override
@@ -43,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        notebookRef.addSnapshotListener(this, new EventListener<QuerySnapshot>() {
+        jugadoresRef.addSnapshotListener(this, new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(QuerySnapshot queryDocumentSnapshots, FirebaseFirestoreException e) {
                 if (e != null) {
