@@ -24,6 +24,8 @@ public class UnityPlayerActivity extends Activity
     String txtR2 = "boton2";
     String txtR3 = "boton3";
     String txtR4 = "boton4";
+    Integer jdr = -1;
+    Integer resp = -1;
 
     // Setup activity layout
     @Override protected void onCreate(Bundle savedInstanceState)
@@ -33,6 +35,19 @@ public class UnityPlayerActivity extends Activity
 
         mUnityPlayer = new UnityPlayer(this);
         setContentView(mUnityPlayer);
+        setDatos();
+
+    }
+
+    public void setDatos(){
+        txtP = getIntent().getStringExtra("question");
+        txtR1 = getIntent().getStringExtra("opt1");
+        txtR2 = getIntent().getStringExtra("opt2");
+        txtR3 = getIntent().getStringExtra("opt3");
+        txtR4 = getIntent().getStringExtra("opt4");
+        jdr = getIntent().getIntExtra("jugador",-1);
+        resp = getIntent().getIntExtra("respCorr",-1);
+        String asd = getIntent().getStringExtra("respCorr");
         mUnityPlayer.requestFocus();
         mUnityPlayer.UnitySendMessage("ImageTarget","setPregunta",txtP);
         mUnityPlayer.UnitySendMessage("ImageTarget","setRespuesta1",txtR1);
@@ -42,10 +57,17 @@ public class UnityPlayerActivity extends Activity
     }
 
 
-
     public void setStringFromUnity(String input){
         stringFromUnity = input;
-        Toast.makeText(this,stringFromUnity,Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this,GameMapActivity.class);
+        intent.putExtra("answer",stringFromUnity);
+        intent.putExtra("respCorr",getIntent().getStringExtra("respCorr"));
+        intent.putExtra("fromUnity",true);
+        intent.putExtra("jugador",jdr);
+        intent.putExtra("respCorr",resp);
+        startActivity(intent);
+        //finish();
+        //Toast.makeText(this,stringFromUnity,Toast.LENGTH_SHORT).show();
     }
 
 
@@ -76,6 +98,7 @@ public class UnityPlayerActivity extends Activity
     @Override protected void onResume()
     {
         super.onResume();
+        setDatos();
         mUnityPlayer.resume();
     }
 

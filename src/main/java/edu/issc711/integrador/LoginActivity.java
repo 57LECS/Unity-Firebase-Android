@@ -11,7 +11,9 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.GeoPoint;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.mapbox.mapboxsdk.geometry.LatLng;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -120,12 +122,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.btnPlayerOne)
-    public void loginOne(){
-        Intent intent = new Intent( this, MainMenuActivity.class );
-        intent.putExtra( "Player", 1 );
+    public void loginOne() {
+        Intent intent = new Intent(this, MainMenuActivity.class);
+        intent.putExtra("Player", 1);
+        //intent.putExtra("Location",jugadores.get(0).getUbicacion().toString());
         Map<String, Object> player = new HashMap<>();
-        player.put("isConnected",true );
-        player.put("score",jugadores.get(0).getScore());
+        player.put("isConnected", true);
+        player.put("score", 0);
+        player.put("ubicacion",new GeoPoint(0,0));
         db.collection("jugadores").document("player1").set(player);
         startActivity(intent);
     }
@@ -133,9 +137,11 @@ public class LoginActivity extends AppCompatActivity {
     public void loginTwo(){
         Intent intent = new Intent( this, MainMenuActivity.class );
         intent.putExtra( "Player", 2 );
+        //intent.putExtra("Location",jugadores.get(1).getUbicacion().toString());
         Map<String, Object> player = new HashMap<>();
         player.put("isConnected",true );
-        player.put("score",jugadores.get(1).getScore());
+        player.put("score",0);
+        player.put("ubicacion",new GeoPoint(0,0));
         db.collection("jugadores").document("player2").set(player);
         startActivity(intent);
     }
@@ -143,18 +149,23 @@ public class LoginActivity extends AppCompatActivity {
     public void loginThree(){
         Intent intent = new Intent( this, MainMenuActivity.class );
         intent.putExtra( "Player", 3 );
+        //intent.putExtra("Location",jugadores.get(2).getUbicacion().toString());
         Map<String, Object> player = new HashMap<>();
         player.put("isConnected",true );
-        player.put("score",jugadores.get(2).getScore());
+        player.put("score",0);
+        player.put("ubicacion",new GeoPoint(0,0));
         db.collection("jugadores").document("player3").set(player);
         startActivity(intent);
     }
     @OnClick(R.id.btnPlayerFour)
     public void loginFour(){
         Intent intent = new Intent( this, MainMenuActivity.class );
-        intent.putExtra( "Player", 4 ); Map<String, Object> player = new HashMap<>();
+        intent.putExtra( "Player", 4 );
+        //intent.putExtra("Location",jugadores.get(3).getUbicacion().toString());
+        Map<String, Object> player = new HashMap<>();
         player.put("isConnected",true );
-        player.put("score",jugadores.get(3).getScore());
+        player.put("score",0);
+        player.put("ubicacion",new GeoPoint(0,0));
         db.collection("jugadores").document("player4").set(player);
         startActivity(intent);
     }
