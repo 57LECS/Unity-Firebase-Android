@@ -205,7 +205,7 @@ class GameMapActivity : AppCompatActivity(), OnMapReadyCallback, PermissionsList
         catch (e: Exception)
         {
             Toast.makeText(this, e.message, Toast.LENGTH_LONG).show()
-            findViewById<Button>(R.id.btnRegresarMenu).callOnClick()
+            //findViewById<Button>(R.id.btnRegresarMenu).callOnClick()
         }
     }
     else
@@ -269,11 +269,13 @@ class GameMapActivity : AppCompatActivity(), OnMapReadyCallback, PermissionsList
                     juegoId = juegos.first().getId()
                 }
                 else{
-                    val intent = Intent(this,MainMenuActivity::class.java)
+                    Toast.makeText(this, "No encontramos una pregunta", Toast.LENGTH_LONG).show()
+                    /*val intent = Intent(this,MainMenuActivity::class.java)
                     intent.putExtra("jugador",jugador)
                     startActivity(intent)
                     mapView.onDestroy()
-                    finish()
+                    finish()*/
+
                 }
             }
         })
